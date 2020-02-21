@@ -1,32 +1,47 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { Text, View, StyleSheet, TextInput, Button } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
+import {connect} from 'react-redux'
+import {APIFailureAction ,APISuccessAction, APIRequestAction} from '../Redux/TakeawayListActions/TakeawayListActions'
 
 class SearchBar extends Component {
+
   constructor(props) {
     super(props);
-      this.state={
-        postCode: ''
-      }
+    this.state = {
+      postCode: ''
+    }
+  }
+
+
+  fetchResponse = () => {
+    this.props.APIRequestAction(this.state.postCode)
   }
 
   render() {
     return (
-      <View style={styles.backgroundStyle}>
-        <Icon name="search" style={styles.iconStyle} />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Search"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={this.state.postCode}
-          onChangeText={(newValue)=>this.setState({postCode: newValue})}
-        />
-        <Text>{this.state.postCode}</Text>
-      </View>
+        <View style={styles.backgroundStyle}>
+          <Icon name="search" style={styles.iconStyle}/>
+          <TextInput
+              style={styles.inputStyle}
+              placeholder="Search"
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={this.state.postCode}
+              onChangeText={(newValue) => this.setState({postCode: newValue})}
+          />
+          <Text>{this.state.postCode}</Text>
+          <View>
+            <Button title="press"
+                    onPress={this.fetchResponse}
+            />
+          </View>
+        </View>
+
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   backgroundStyle: {
@@ -47,4 +62,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 15
   }
 });
-export default SearchBar;
+const mapStateToProps= (state)=>{
+  return{
+    postCode: state.takeAway.postCode,
+    response : state.takeAway.response
+  }}
+const mapDispatchToProps={
+  APISuccessAction,
+  APIRequestAction,
+  APIFailureAction
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);

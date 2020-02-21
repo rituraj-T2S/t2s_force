@@ -1,4 +1,4 @@
-import {TakeAwayListTypes} from './TakeAwayListTypes';
+import {TakeAwayListTypes} from '../TakeawayListTypes/TakeawayListTypes';
 
 
 
