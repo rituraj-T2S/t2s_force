@@ -5,8 +5,10 @@ import {APICall} from '../../Network/ApiCall';
 export function * TakeAwayListResponse(action) {
     try {
         const APIResponse=yield call(APICall.takeAwayList, action.payload)
-        console.log('response==>',JSON.stringify(APIResponse));
-        yield put({type:TakeAwayListTypes.TAKEAWAYLIST_API_SUCCESS, payload: APIResponse.data})
+        const response = APIResponse.data
+ console.log('response==>',response.data.data)
+
+        yield put({type:TakeAwayListTypes.TAKEAWAYLIST_API_SUCCESS, payload: response.data.data})
     }
     catch (error) {
         yield put({type:TakeAwayListTypes.TAKEAWAYLIST_API_FAIL, payload: error})
