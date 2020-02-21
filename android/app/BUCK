@@ -35,20 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-<<<<<<< HEAD
     package = "com.t2s_forces",
-=======
-    package = "com.t2s_force",
->>>>>>> 46be47ebdf1d3340861cfc42707f7b9120fae4a3
 )
 
 android_resource(
     name = "res",
-<<<<<<< HEAD
     package = "com.t2s_forces",
-=======
-    package = "com.t2s_force",
->>>>>>> 46be47ebdf1d3340861cfc42707f7b9120fae4a3
     res = "src/main/res",
 )
 
