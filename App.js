@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Navigation } from "./AppModules/Navigation/Navigation";
-import SearchBar from "./AppModules/Search/SearchBar";
-// import { APIcall } from "./AppModule/Network/APIcall";
-
+import { Provider } from 'react-redux';
+import store from "./AppModules/Redux/Store/Store";
 export default class App extends Component {
   render() {
-    return <Navigation />;
+    return (
+        <Provider store={store}>
+        <Navigation/>
+        </Provider>
+  )
   }
 }

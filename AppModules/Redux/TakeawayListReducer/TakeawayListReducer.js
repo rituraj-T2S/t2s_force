@@ -1,35 +1,41 @@
 import {combineReducers} from 'redux'
-import {TakeAwayListTypes} from './TakeAwayListTypes';
+import {TakeAwayListTypes} from '../TakeawayListTypes/TakeawayListTypes';
 
 const INITIAL_STATE = {
-    postcode:''
+    postcode:'',
+    response:null,
+    error:''
 }
 
 const TakeAwayListReducer = (state=INITIAL_STATE, action) =>
 {
     switch (action.type) {
-        case TakeAwayListTypes.POSTCODE_INPUT:
-            return(
-                {
-                    ...state,
-                    postcode: action.payload
-                }
-            )
+
         case TakeAwayListTypes.TAKEAWAYLIST_API_REQUEST:
             return (
                 {
                     ...state,
                     postcode: action.payload
+
                 }
             )
         case TakeAwayListTypes.TAKEAWAYLIST_API_SUCCESS:
             return (
                 {
                     ...state,
-                    postcode: action.payload
+                    response: action.payload
                 }
             )
+        case TakeAwayListTypes.TAKEAWAYLIST_API_FAIL:
+            return (
+                {
+                    ...state,
+                    error:action.payload
+                }
+            )
+        default:
+            return  state
     }
 }
 
-export default RootReducer = combineReducers({TakeAwayListReducer})
+export default  TakeAwayListReducer
