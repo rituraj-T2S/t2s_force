@@ -9,7 +9,7 @@ class SearchBar extends Component {
         postCode: ''
       }
   }
-  
+
   render() {
     return (
       <View style={styles.backgroundStyle}>
