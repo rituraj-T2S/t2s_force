@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const APIcall = {
+export const APICall = {
     takeAwayList: PostCode => {
         axios
             .post(
