@@ -3,6 +3,13 @@ import { Text, View, StyleSheet, TextInput } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
 class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+      this.state={
+        postCode: ''
+      }
+  }
+  
   render() {
     return (
       <View style={styles.backgroundStyle}>
@@ -12,7 +19,10 @@ class SearchBar extends Component {
           placeholder="Search"
           autoCapitalize="none"
           autoCorrect={false}
+          value={this.state.postCode}
+          onChangeText={(newValue)=>this.setState({postCode: newValue})}
         />
+        <Text>{this.state.postCode}</Text>
       </View>
     );
   }
