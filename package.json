@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "T2S_Forces",
+=======
+  "name": "T2S_Force",
+>>>>>>> 46be47ebdf1d3340861cfc42707f7b9120fae4a3
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@react-native-community/masked-view": "^0.1.6",
     "react": "16.8.3",
     "react-native": "0.59.9",
@@ -18,6 +23,10 @@
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.1.1",
     "react-navigation-stack": "^2.1.1"
+=======
+    "react": "16.8.3",
+    "react-native": "0.59.9"
+>>>>>>> 46be47ebdf1d3340861cfc42707f7b9120fae4a3
   },
   "devDependencies": {
     "@babel/core": "7.8.4",

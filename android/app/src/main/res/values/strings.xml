@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">T2S_Forces</string>
+=======
+    <string name="app_name">T2S_Force</string>
+>>>>>>> 46be47ebdf1d3340861cfc42707f7b9120fae4a3
 </resources>
