@@ -1,25 +1,24 @@
-import {TakeAwayListTypes} from '../TakeawayListTypes/TakeawayListTypes';
+import { TakeAwayListTypes } from '../TakeawayListTypes/TakeawayListTypes';
 
 
 
-export const  APIRequestAction = (postcode) =>
-{
-    return{
+export const APIRequestAction = (postcode) => {
+    return {
         type: TakeAwayListTypes.TAKEAWAYLIST_API_REQUEST,
-        payload : postcode
+        payload: postcode
     }
 }
 
-export const  APISuccessAction = (response) => {
+export const APISuccessAction = (response) => {
     return {
         type: TakeAwayListTypes.TAKEAWAYLIST_API_SUCCESS,
-        payload:response
+        payload: response
     }
 }
 
 export const APIFailureAction = (error) => {
     return {
-        type:TakeAwayListTypes.TAKEAWAYLIST_API_FAIL,
-        payload:error
+        type: TakeAwayListTypes.TAKEAWAYLIST_API_FAIL,
+        payload: error
     }
 }

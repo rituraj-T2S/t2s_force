@@ -1,14 +1,14 @@
-import {combineReducers} from 'redux'
-import {TakeAwayListTypes} from '../TakeawayListTypes/TakeawayListTypes';
+import { combineReducers } from 'redux'
+import { TakeAwayListTypes } from '../TakeawayListTypes/TakeawayListTypes';
 
 const INITIAL_STATE = {
-    postcode:'',
-    response:null,
-    error:''
+    postcode: '',
+    response: null,
+    error: ''
 }
 
-const TakeAwayListReducer = (state=INITIAL_STATE, action) =>
-{
+const TakeAwayListReducer = (state = INITIAL_STATE, action) => {
+    console.log("action=>", action)
     switch (action.type) {
 
         case TakeAwayListTypes.TAKEAWAYLIST_API_REQUEST:
@@ -30,12 +30,12 @@ const TakeAwayListReducer = (state=INITIAL_STATE, action) =>
             return (
                 {
                     ...state,
-                    error:action.payload
+                    error: action.payload
                 }
             )
         default:
-            return  state
+            return state
     }
 }
 
-export default  TakeAwayListReducer
+export default TakeAwayListReducer
