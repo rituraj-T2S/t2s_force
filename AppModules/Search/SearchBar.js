@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Button } from "react-native";
+import { Text, View, StyleSheet, TextInput, Button,FlatList } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import {connect} from 'react-redux'
 import {APIFailureAction ,APISuccessAction, APIRequestAction} from '../Redux/TakeawayListActions/TakeawayListActions'
+import SearchList from "../SearchList";
 
 class SearchBar extends Component {
 
@@ -19,7 +20,9 @@ class SearchBar extends Component {
   }
 
   render() {
+    console.log("response+=>",this.props.response.data)
     return (
+        <>
         <View style={styles.backgroundStyle}>
           <Icon name="search" style={styles.iconStyle}/>
           <TextInput
@@ -33,11 +36,24 @@ class SearchBar extends Component {
           <Text>{this.state.postCode}</Text>
           <View>
             <Button title="press"
-                    onPress={this.fetchResponse}
+                    onPress={() => this.fetchResponse()}
             />
           </View>
+
+          {/*<FlatList data={this.props.response.data} keyExtractor={(item) => item.id }*/}
+          {/* renderItem={({item}) => {*/}
+          {/*   return (*/}
+          {/*       <View>*/}
+          {/*         <Text>{item.id}</Text>*/}
+          {/*       </View>*/}
+          {/*   )*/}
+          {/* }}/>*/}
+        </View>
+        <View>
+          <SearchList data={this.props.response.data}/>
         </View>
 
+      </>
     );
   }
 }
