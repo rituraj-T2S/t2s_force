@@ -1,5 +1,6 @@
 
 import {StyleSheet} from "react-native";
+import {primaryColor} from "../Modules/Utils/InspectorConstants";
 
 export const searchListStyles = StyleSheet.create({
     container: {
@@ -13,7 +14,7 @@ export const searchListStyles = StyleSheet.create({
     },
     itemContainer: {
         flex:1,
-        borderColor:  '#177614',
+        borderColor:  primaryColor,
         borderWidth:4,
         padding: 20,
         marginVertical: 8,

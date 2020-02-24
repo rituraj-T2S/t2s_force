@@ -1,7 +1,9 @@
 import React ,{Component}from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text,ScrollView,TouchableOpacity } from 'react-native';
-import {connect } from 'react-redux';
+import {  View, FlatList, Text,TouchableOpacity } from 'react-native';
+
 import {searchListStyles} from "../../Styles/searchListStyles";
+import {requestLocationPermission} from "../Permissions/LocationPermission";
+
 
 
 
@@ -13,7 +15,12 @@ function Item(props) {
     );
 }
 
+
 class SearchList extends Component {
+    onStart=(data,id)=>{
+        requestLocationPermission(this.props.nav,data,id);
+    }
+
     render() {
 
         return (
@@ -22,9 +29,13 @@ class SearchList extends Component {
                     <FlatList
                         data={this.props.data}
                         renderItem={({ item }) =>  {
+                            const id = item.id
                             return  <View>
-                                <TouchableOpacity style={searchListStyles.itemContainer}>
-                                    <Item>
+                                <TouchableOpacity
+                                    onPress={() => this.onStart(this.props.data,id)
+                                    }
+                                    style={searchListStyles.itemContainer}>
+                                    <Item >
 
                                         <Text style={searchListStyles.title}>{item.name}</Text>
                                         <View style={searchListStyles.address}>
