@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import {  View, TextInput, ScrollView } from "react-native";
+import {  View, TextInput, ScrollView, ActivityIndicator } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { connect } from 'react-redux'
 import { APIFailureAction, APISuccessAction, APIRequestAction } from '../Redux/TakeawayListActions/TakeawayListActions'
 import SearchList from "../SearchList/SearchList";
 import { searchBarStyles } from "../../Styles/searchBarStyles";
+import { primaryColor } from "../Utils/InspectorConstants";
 
 class SearchBar extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      postCode: ''
+      postCode: '',
+      loader:null
     }
   }
 
@@ -33,13 +35,17 @@ class SearchBar extends Component {
             autoCorrect={false}
             value={this.state.postCode}
             onChangeText={(newValue) => this.setState({ postCode: newValue })}
-            onSubmitEditing={this.fetchResponse}
+            onSubmitEditing={()=>
+              {
+                this.fetchResponse(),
+                this.setState({loader:<ActivityIndicator color={primaryColor} size="large"/>})
+              }}
           />
         </View>
         <View>
-          <SearchList
+          {this.props.response ? (<SearchList
               nav={this.props.nav}
-              data={this.props.response.data} />
+              data={this.props.response.data} />):(this.state.loader)}
         </View>
 
       </ScrollView>
