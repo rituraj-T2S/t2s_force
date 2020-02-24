@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
-import SearchBar from "../Search/SearchBar";
+import { Text, View, TouchableWithoutFeedback, Keyboard } from "react-native";
+import SearchBar from "../Modules/Search/SearchBar";
 
-import {APICall} from "../Network/ApiCall";
-import SearchList from "../SearchList";
+import { APICall } from "../Modules/Network/ApiCall";
+import SearchList from "../Modules/SearchList/SearchList";
 
 
 class TakeawayListView extends Component {
@@ -12,11 +12,14 @@ class TakeawayListView extends Component {
   }
 
   render() {
-    return(
+    return (
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View>
           <SearchBar />
 
         </View>
+      </TouchableWithoutFeedback>
+
     )
 
   }

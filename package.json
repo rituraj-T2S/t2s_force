@@ -6,7 +6,8 @@
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest",
         "lint": "eslint --fix *.js",
-        "format": "prettier --write *.js"
+        "format": "prettier --write *.js",
+        "watch-need-help": "echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances && echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events && echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches && watchman shutdown-server"
     },
     "dependencies": {
         "@react-native-community/masked-view": "^0.1.6",
@@ -30,23 +31,13 @@
         "@babel/core": "7.8.4",
         "@babel/runtime": "7.8.4",
         "babel-jest": "25.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-defaults": "^9.0.0",
         "jest": "25.1.0",
         "metro-react-native-babel-preset": "0.58.0",
         "react-test-renderer": "16.8.3"
     },
     "jest": {
         "preset": "react-native"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.js": [
-            "prettier --write",
-            "eslint --fix",
-            "git add"
-        ]
     }
 }
