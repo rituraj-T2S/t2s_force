@@ -2,14 +2,17 @@ import { combineReducers } from 'redux'
 import { TakeAwayListTypes } from '../TakeawayListTypes/TakeawayListTypes';
 
 const INITIAL_STATE = {
+
     postcode: '',
-    response: null,
+    response: '',
     error: ''
 }
 
 const TakeAwayListReducer = (state = INITIAL_STATE, action) => {
     console.log("action=>", action)
+
     switch (action.type) {
+
 
         case TakeAwayListTypes.TAKEAWAYLIST_API_REQUEST:
             return (
