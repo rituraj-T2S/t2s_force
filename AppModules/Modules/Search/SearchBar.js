@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, TextInput, Button, FlatList, ScrollView } from "react-native";
+import {  View, TextInput, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { connect } from 'react-redux'
 import { APIFailureAction, APISuccessAction, APIRequestAction } from '../Redux/TakeawayListActions/TakeawayListActions'
@@ -37,7 +37,9 @@ class SearchBar extends Component {
           />
         </View>
         <View>
-          <SearchList data={this.props.response.data} />
+          <SearchList
+              nav={this.props.nav}
+              data={this.props.response.data} />
         </View>
 
       </ScrollView>
