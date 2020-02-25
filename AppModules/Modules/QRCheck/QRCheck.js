@@ -9,7 +9,7 @@ class QRCheck extends Component {
 
         if (data !== undefined && data !== null && data !== "") {
             try {
-                JSON.parse(data);
+
 
                 if (JSON.parse(data).hasOwnProperty("DateAndTime")) {
                     const QR_Time = moment(
@@ -21,7 +21,8 @@ class QRCheck extends Component {
                         QR_Time.diff(Device_Time, differenceIn, floating)
                     );
                     if (timeDifference === 0 || timeDifference <= maxTimeDifference) {
-                        this.props.navigation.navigate("Finish");
+                         this.props.navigation.navigate("CheckList");
+
                     } else if (timeDifference > maxTimeDifference) {
                         alert("QR expired regenerate QR code");
                     }
