@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Alert } from "react-native";
 import { locationAlert } from "../Alert/LocationPermissionAlert";
 import {distanceValidation} from "../Utils/InspectorConstants";
+import {requestCameraPermission} from "../Permissions/CameraPermission";
 
 
 class LocationCheck extends Component {
@@ -12,7 +13,7 @@ class LocationCheck extends Component {
         Geolocation.getCurrentPosition(
             position => {
                 const getDistance = distance(position.coords,lat,lng);
-                if (getDistance > distanceValidation) {
+                if (getDistance < distanceValidation) {
                     locationAlert(getDistance);
                 } else {
                     requestCameraPermission(navigation);

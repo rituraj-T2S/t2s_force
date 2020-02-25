@@ -9,7 +9,7 @@ export async function requestCameraPermission(navigation) {
         );
 
         if (permission === PermissionsAndroid.RESULTS.GRANTED) {
-            navigation.navigate("QRCode");
+            navigation.navigate("QRScan");
             console.log("granted");
         } else if (permission === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
             CameraPermissionAlert();
