@@ -39,6 +39,7 @@ class SearchBar extends Component {
               {
                 this.fetchResponse(),
                 this.setState({loader:<ActivityIndicator color={primaryColor} size="large"/>})
+                this.setState({postCode:''})
               }}
           />
         </View>
