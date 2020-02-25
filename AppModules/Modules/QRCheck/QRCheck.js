@@ -21,8 +21,8 @@ class QRCheck extends Component {
                         QR_Time.diff(Device_Time, differenceIn, floating)
                     );
                     if (timeDifference === 0 || timeDifference <= maxTimeDifference) {
-                        // this.props.navigation.navigate("Finish");
-                        alert('finish')
+                         this.props.navigation.navigate("CheckList");
+
                     } else if (timeDifference > maxTimeDifference) {
                         alert("QR expired regenerate QR code");
                     }
