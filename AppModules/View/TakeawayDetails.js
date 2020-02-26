@@ -25,7 +25,8 @@ export default class StartInspection extends Component {
         const lat = filteredTakeaway[0].lat
         const lng = filteredTakeaway[0].lng
 
-        console.log(filteredTakeaway)
+        console.log(filteredTakeaway[0].cuisines[1])
+        // console.log( filteredTakeaway[0].cuisines[1].hasOwnProperty('image_url') )
         return (
 
             <>
@@ -38,7 +39,7 @@ export default class StartInspection extends Component {
                         <Text style={TakeAwayDetailsStyle.TakeAwayAddressTextStyle}>{filteredTakeaway[0].street},{filteredTakeaway[0].city}</Text>
                     </View>
                    <View style={TakeAwayDetailsStyle.TakeAwayDetailsImageStyleContainer}>
-                       <Image source={{ uri : filteredTakeaway[0].cuisines[1].image_url}}  style={TakeAwayDetailsStyle.TakeAwayDetailsImageStyle} />
+                   { filteredTakeaway[0].cuisines.length > 0 ?  (<Image source={{ uri : filteredTakeaway[0].cuisines[1].image_url}}  style={TakeAwayDetailsStyle.TakeAwayDetailsImageStyle} />) : (<Text>Image not present</Text>)}
                    </View>
                     <View style={TakeAwayDetailsStyle.TakeAwayDetailsDescriptionContainer}>
                         <Text numberOfLines={5} style={TakeAwayDetailsStyle.TakeAwayDetailsDescriptionStyle}>{filteredTakeaway[0].description}</Text>

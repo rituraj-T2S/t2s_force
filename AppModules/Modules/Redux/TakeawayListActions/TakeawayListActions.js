@@ -8,17 +8,3 @@ export const APIRequestAction = (postcode) => {
         payload: postcode
     }
 }
-
-export const APISuccessAction = (response) => {
-    return {
-        type: TakeAwayListTypes.TAKEAWAYLIST_API_SUCCESS,
-        payload: response
-    }
-}
-
-export const APIFailureAction = (error) => {
-    return {
-        type: TakeAwayListTypes.TAKEAWAYLIST_API_FAIL,
-        payload: error
-    }
-}
