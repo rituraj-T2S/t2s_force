@@ -12,11 +12,16 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postCode: '',
+      postCode: '', //AA1 1AA, ST6 6DX
       loader:null
     }
   }
 
+  isValidPostCode = (postcode) =>
+  {
+    const pattern = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/
+    return pattern.test(postcode)
+  }
 
   fetchResponse = () => {
     this.props.APIRequestAction(this.state.postCode)
@@ -37,9 +42,17 @@ class SearchBar extends Component {
             onChangeText={(newValue) => this.setState({ postCode: newValue })}
             onSubmitEditing={()=>
               {
+                if(this.isValidPostCode(this.state.postCode))
+                {
                 this.fetchResponse(),
                 this.setState({loader:<ActivityIndicator color={primaryColor} size="large"/>})
                 this.setState({postCode:''})
+                }
+                else
+                {
+                  alert("Enter valid post code")
+                  this.setState({postCode:''})
+                }
               }}
           />
         </View>
@@ -63,9 +76,7 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-  APISuccessAction,
-  APIRequestAction,
-  APIFailureAction
+  APIRequestAction
 }
 
 

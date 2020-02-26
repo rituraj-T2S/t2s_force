@@ -6,7 +6,7 @@ export const APICall = {
             {
                 postcode: PostCode
             })
-    // .then(response=>console.log(response))
+    //.then(response=>console.log('API response => ',response))
     // .catch(error=>console.log(error))
 }
 
